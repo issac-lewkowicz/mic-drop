@@ -1,38 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import CardList from './CardList';
+import Header from './Header';
+
 function App() {
 
-const [itemList, setItemList] = useState([])
+    //All components are just for demo purposes
+    // Will be modified tommorrow
+    //db.json currently holding example data
+    //GET request, and card renderings are allready functional, will be modified
+
+    const [itemList, setItemList] = useState([])
 
 
-useEffect(() => {
-  fetch('  http://localhost:6001/items')
-      .then(res => res.json())
-      .then(setItemList)
-  }, [])
+    useEffect(() => {
+        fetch('http://localhost:6001/items')
+            .then(res => res.json())
+            .then(setItemList)
+    }, [])
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-
-      <CardList />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Header className="App-header" />
+            <CardList itemList={itemList} />
+        </div>
+    );
 }
 
 export default App;
