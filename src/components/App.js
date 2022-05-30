@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import CardList from './CardList';
 import Header from './Header';
+import InsturmentForm from './InsturmentForm'
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
     //GET request, and card renderings are allready functional, will be modified
 
     const [itemList, setItemList] = useState([])
-
+    
 
     useEffect(() => {
         fetch('http://localhost:6001/items')
@@ -20,10 +21,18 @@ function App() {
             .then(setItemList)
     }, [])
 
+    const onAddItem = (newGear) => {
+
+        setItemList([...itemList, newGear])
+
+    }
+
+
     return (
         <div className="App">
             <Header className="App-header" />
             <CardList itemList={itemList} />
+            <InsturmentForm onAddItem={onAddItem} />
         </div>
     );
 }
