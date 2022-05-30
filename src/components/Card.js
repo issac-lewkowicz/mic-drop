@@ -7,7 +7,8 @@ function Card({card}) {
     <div>
         <h3>{name}</h3>
         <img src={imageOne} alt='sorry'/>
-        <p>{rating}</p>
+        <p>${price}</p>
+        <p>{condtion}</p>
     </div>
   )
 }
