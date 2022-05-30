@@ -2,12 +2,12 @@ import React from 'react'
 
 function Card({card}) {
     //const {name, image, price, condition} = card;
-   const {name, image, likes} = card;
+   const {name, brand, price, insturFam, condtion, rating, imageOne, imageTwo, imageThree } = card;
   return (
     <div>
         <h3>{name}</h3>
-        <img src={image} alt='sorry'/>
-        <p>{likes}</p>
+        <img src={imageOne} alt='sorry'/>
+        <p>{rating}</p>
     </div>
   )
 }
