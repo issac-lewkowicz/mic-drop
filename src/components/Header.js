@@ -1,9 +1,21 @@
 import React from 'react'
 
-function Header() {
-  return (
-    <div><h1>15% Off All Gear Until Monday</h1></div>
-  )
+function Header({ onSearch, searchTerm }) {
+    //const handleNewItem = () => {}
+
+
+
+    return (
+        <div>
+            <h2>Mic Drop</h2>
+         
+            <form>
+                <input type="text" value={searchTerm} onChange={e => onSearch(e.target.value)} />
+                
+            </form>
+            {/* <button onClick={handleNewItem} value="Sell your gear!" /> */}
+        </div>
+    )
 }
 
 export default Header

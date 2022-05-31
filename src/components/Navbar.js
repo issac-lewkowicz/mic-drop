@@ -1,20 +1,17 @@
 import React from 'react'
 
-function Navbar({ onSearch, searchTerm }) {
-    //const handleNewItem = () => {}
-
-    
-
-    return (
-        <div>
-            <h2>Mic Drop</h2>
-            <form>
-                <input type="text" value={searchTerm} onChange={e => onSearch(e.target.value)} />
-                
-            </form>
-            {/* <button onClick={handleNewItem} value="Sell your gear!" /> */}
-        </div>
-    )
+function Navbar({filterBy, onChangeFilter}) {
+    function handleGuitars(e){
+        onChangeFilter(e.target.value);
+    }
+  return (
+    <div>Navbar
+           <br/>
+            <label><strong></strong>
+            <button onClick={handleGuitars}> Guitars</button>
+            </label>
+    </div>
+  )
 }
 
 export default Navbar
