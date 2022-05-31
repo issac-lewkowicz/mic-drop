@@ -5,6 +5,7 @@ import Header from './Header';
 import NavBar from './NavBar';
 import CardList from './CardList';
 import InsturmentForm from './InsturmentForm'
+import HeroCarousel from './Hero Section/HeroCarousel';
 
 function App() {
 
@@ -39,9 +40,15 @@ function App() {
     return (
         <div className="App">
             <Banner className="App-header" />
+            
             <Header searchTerm={searchTerm} onSearch={handleSearch}  />
+            
             <NavBar filterBy={filterBy} onChangeFilter={setFilterBy}/>
+
+            <HeroCarousel />
+
             <CardList itemList={displayedItemList} filteredItems={filteredItems}/>
+            
             <InsturmentForm onAddItem={onAddItem} />
         </div>
     );
