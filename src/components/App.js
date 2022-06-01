@@ -15,7 +15,7 @@ function App() {
 
     const [itemList, setItemList] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
-    const [filterBy, setFilterBy] = useState('Guitar');
+    const [filterBy, setFilterBy] = useState('All');
 
     useEffect(() => {
         fetch('http://localhost:6001/items')
@@ -29,19 +29,23 @@ function App() {
 
     }
 
+    const handleFilterBy = (category) => {
+        setFilterBy(category)
+    }
+
     const handleSearch = (newSearch) => {
         setSearchTerm(newSearch)
     }
     
-    const displayedItemList = itemList.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    const filteredItems = displayedItemList.filter((item) => item.type === filterBy)
+    const displayedItemList = itemList.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        .filter((item) => filterBy === "All" ? true : item.instruFam === filterBy)
 
     return (
         <div className="App">
             <Banner className="App-header" />
             <Header searchTerm={searchTerm} onSearch={handleSearch}  />
-            <NavBar filterBy={filterBy} onChangeFilter={setFilterBy}/>
-            <CardList itemList={displayedItemList} filteredItems={filteredItems}/>
+            <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy}/>
+            <CardList itemList={displayedItemList} />
             <InsturmentForm onAddItem={onAddItem} />
         </div>
     );

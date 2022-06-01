@@ -1,17 +1,19 @@
 import React from 'react'
 
-function Navbar({filterBy, onChangeFilter}) {
-    function handleGuitars(e){
+function NavBar({ onChangeFilter}) {
+
+    function handleClick(e){
         onChangeFilter(e.target.value);
     }
+
   return (
-    <div>Navbar
-           <br/>
-            <label><strong></strong>
-            <button onClick={handleGuitars}> Guitars</button>
-            </label>
+    <div className='filters'>
+          <button value="Electric Guitar" onClick={handleClick}> Guitars</button>
+          <button value="Microphone" onClick={handleClick}> Microphone</button>
+          <button value="Sound Card" onClick={handleClick}> Sound Card</button>
+         
     </div>
   )
 }
 
-export default Navbar
+export default NavBar
