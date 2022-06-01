@@ -4,6 +4,7 @@ import Banner from './Banner';
 import Header from './Header';
 import NavBar from './NavBar';
 import CardList from './CardList';
+import HeroCarousel from './Hero Section/HeroCarousel';
 import InsturmentForm from './InsturmentForm';
 import Cart from './Cart';
 
@@ -105,6 +106,14 @@ function App() {
     return (
         <div className="App">
             <Banner className="App-header" />
+            
+
+            
+
+
+            <HeroCarousel />
+
+
             <Header searchTerm={searchTerm} onSearch={handleSearch} />
             <NavBar filterBy={filterBy} onChangeFilter={setFilterBy} />
             <CardList itemList={displayedItemList} filteredItems={filteredItems} onAddToCart={onAddToCart} />
