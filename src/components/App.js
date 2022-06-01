@@ -60,6 +60,7 @@ function App() {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "Accept": "application/json"
                     },
                     body: JSON.stringify(resItem),
                 };
@@ -67,8 +68,8 @@ function App() {
                 fetch('http://localhost:6001/cart', postConfig)
                     .then(res => res.json())
                     .then((responseItem) => {
-                        const itemToAdd = itemList.find(item => item.id === responseItem.id)
-                        setCartList([...cartList, itemToAdd])
+                        console.log(responseItem)
+                        setCartList([...cartList, responseItem])
                     })
             })
     }

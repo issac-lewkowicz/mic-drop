@@ -1,11 +1,13 @@
 import { useState } from 'react'
 
 function Card({ card, onChangeCart }) {
+
     const { name, brand, price, insturFam, condtion, rating, imageOne, imageTwo, imageThree, inCart } = card;
-    const [buttonStatus, setButtonStatus] = useState(inCart ? 'Remove from Cart' : 'Add to Cart')
+    //const [buttonStatus, setButtonStatus] = useState(inCart ? 'Remove from Cart' : 'Add to Cart')
+
     const handleClickCart = () => {
         onChangeCart(card.id);
-        setButtonStatus(inCart ? 'Remove from Cart' : 'Add to Cart');
+        //setButtonStatus(inCart ? 'Remove from Cart' : 'Add to Cart');
     }
 
     //const addToCart = inCart ? <button onClick={handleClickCart}>Remove from Cart</button> : <button onClick={handleClickCart}>Add to Cart</button>
@@ -24,10 +26,10 @@ function Card({ card, onChangeCart }) {
     return (
         <li>
             <h3>{name}</h3>
-            <img src={imageOne} alt='sorry' />
+            <img src={imageOne} alt='item' />
             <p>${price}</p>
             <p>{condtion}</p>
-            <button onClick={handleClickCart}>{buttonStatus}</button>
+            <button onClick={handleClickCart}>{inCart ? 'Remove from Cart' : 'Add to Cart'}</button>
         </li>
     )
 }
