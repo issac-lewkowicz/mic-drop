@@ -1,17 +1,17 @@
 import React from 'react'
 import InstrumentForm from './InsturmentForm'
 
-function Header({ onSearch, searchTerm }) {
+function Header({ onSearch, searchTerm, onAddItem }) {
     //const handleNewItem = () => {}
 
 
 
     return (
-        <div>
-            <h2>Mic Drop</h2>
-            <input type="text" placeholder="Search..." value={searchTerm} onChange={e => onSearch(e.target.value)} />
-            <InstrumentForm />
-            {/* <button onClick={handleNewItem} value="Sell your gear!" /> */}
+        <div id="Header">
+            <h2 className='Header_Content' id='logo'>Mic Drop</h2>
+            <input className='Header_Content' type="text" placeholder="Search..." value={searchTerm} onChange={e => onSearch(e.target.value)} />
+            
+            <InsturmentForm id='iForm' className='Header_Content' onAddItem={onAddItem}/>
         </div>
     )
 }
