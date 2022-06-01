@@ -80,17 +80,17 @@ function App() {
         onAddItem={onAddItem}
       />
       <Switch>
+
         <Route exact path="/">
           <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy} />
           <HeroCarousel />
+          <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
         </Route>
 
-        <Route path="/instruments/:id">
-          <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
+        <Route path="/instruments/cart">
           <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
         </Route>
 
-        <Route path="/instruments/:id/edit"></Route>
       </Switch>
     </div>
   );
