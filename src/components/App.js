@@ -106,17 +106,10 @@ function App() {
     return (
         <div className="App">
             <Banner className="App-header" />
-            
-
-            
-
-
             <HeroCarousel />
-
-
             <Header searchTerm={searchTerm} onSearch={handleSearch} />
-            <NavBar filterBy={filterBy} onChangeFilter={setFilterBy} />
-            <CardList itemList={displayedItemList} filteredItems={filteredItems} onAddToCart={onAddToCart} />
+            <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy} />
+            <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
             <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
             <InsturmentForm onAddItem={onAddItem} />
         </div>
