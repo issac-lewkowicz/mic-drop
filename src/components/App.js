@@ -16,7 +16,7 @@ function App() {
 
     const [itemList, setItemList] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
-    const [filterBy, setFilterBy] = useState('Guitar');
+    const [filterBy, setFilterBy] = useState('All');
     const [cartList, setCartList] = useState([]);
 
     useEffect(() => {
@@ -38,9 +38,16 @@ function App() {
 
     }
 
+    const handleFilterBy = (category) => {
+        setFilterBy(category)
+    }
+
     const handleSearch = (newSearch) => {
         setSearchTerm(newSearch)
     }
+    
+    const displayedItemList = itemList.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        .filter((item) => filterBy === "All" ? true : item.instruFam === filterBy)
 
     const onAddToCart = (id) => {
 
@@ -94,8 +101,6 @@ function App() {
             })
     }
 
-    const displayedItemList = itemList.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    const filteredItems = displayedItemList.filter((item) => item.type === filterBy)
 
     return (
         <div className="App">
