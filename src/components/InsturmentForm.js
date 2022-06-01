@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import ReactDOM from 'react-dom';
 import Button from '@mui/material/Button';
-import { TextField, Select, InputLabel, MenuItem, Container, Backdrop } from '@mui/material';
+import { TextField, Select, InputLabel, MenuItem, Container, Backdrop, Modal } from '@mui/material';
 
 
 function APIForm({onAddItem}) {
@@ -51,13 +51,21 @@ function APIForm({onAddItem}) {
     }    
 
 
-    const [open, setOpen] = useState(false)
-    const handleClose = () => {
-      setOpen(false);
-    };
-    const handleToggle = () => {
-      setOpen(!open);
-    };
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+      };
 
 
 
@@ -66,15 +74,16 @@ function APIForm({onAddItem}) {
 
         <>
 
-        <Button onClick={handleToggle} id='iFormButton'>Sell Your Gear!</Button>
-        <Backdrop
-            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={open}
-            onClick={handleClose}
+        <Button onClick={handleOpen}>Sell Your Gear!</Button>
+        <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
         >
 
 
-        <Container id='insturmentForm__container'>
+        <Container sx={style}>
             
             <form onSubmit={submitHandler} name='form-field' className='form-field'> 
                 <TextField required onChange={changeHandler} name='name' placeholder='Name' value={inputs.name} />
@@ -103,7 +112,7 @@ function APIForm({onAddItem}) {
                 <Button varient='contained' type='submit' >The Hardest Button To Button </Button>
             </form>
         </Container>
-        </Backdrop>
+        </Modal>
         </>
 
     )
