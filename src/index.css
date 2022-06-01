@@ -19,3 +19,6 @@ code {
   justify-content: center;
   height: 360px;
 }
+li {
+    list-style-type: none;
+}
