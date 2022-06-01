@@ -4,7 +4,7 @@ import Banner from './Banner';
 import Header from './Header';
 import NavBar from './NavBar';
 import CardList from './CardList';
-//import HeroCarousel from './Hero Section/HeroCarousel';
+import HeroCarousel from './Hero Section/HeroCarousel';
 import InsturmentForm from './InsturmentForm';
 import Cart from './Cart';
 
@@ -13,7 +13,7 @@ function App() {
     const [itemList, setItemList] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
     const [filterBy, setFilterBy] = useState('All');
-    //const [cartList, setCartList] = useState([]);
+
 
     useEffect(() => {
         fetch('http://localhost:6001/items')
@@ -21,11 +21,6 @@ function App() {
             .then(setItemList)
     }, [])
 
-    // useEffect(() => {
-    //     fetch('http://localhost:6001/cart')
-    //         .then(res => res.json())
-    //         .then(setCartList)
-    // }, [])
 
     const onAddToCart = (id) => {
         const patchConfig = {
@@ -74,12 +69,19 @@ function App() {
     return (
         <div className="App">
             <Banner className="App-header" />
-            <Header searchTerm={searchTerm} onSearch={handleSearch} />
+            
+            <Header 
+                searchTerm={searchTerm} 
+                onSearch={handleSearch} 
+                onAddItem={onAddItem} 
+            />
+            
+        
             <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy} />
-            {/* <HeroCarousel /> */}
+            <HeroCarousel />
             <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
             <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
-            <InsturmentForm onAddItem={onAddItem} />
+            
         </div>
     );
 }
