@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import HeroItem from './HeroItem'
 
+import Carousel from "nuka-carousel";
+
 function HeroCarousel() {
 
 const [heroArr, setHeroArr] = useState([])
@@ -20,10 +22,16 @@ return <HeroItem key={hero.id} hero={hero} />
 
     return (
 
-        <div className="HeroCarousel">
-
-            <div>{heroDisplayItems}</div>
-
+        <div className ='heroCarousel'>
+            
+            <Carousel 
+            wrapAround={true}
+            slidesToShow={1}
+            className="heroCarousel"
+            >
+            {heroDisplayItems}
+            </Carousel>
+        
         </div>
 
     )
