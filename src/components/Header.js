@@ -11,7 +11,7 @@ function Header({ onSearch, searchTerm, onAddItem }) {
             <h2 className='Header_Content' id='logo'>Mic Drop</h2>
             <input className='Header_Content' type="text" placeholder="Search..." value={searchTerm} onChange={e => onSearch(e.target.value)} />
             
-            <InsturmentForm id='iForm' className='Header_Content' onAddItem={onAddItem}/>
+            <InstrumentForm id='iForm' className='Header_Content' onAddItem={onAddItem}/>
         </div>
     )
 }
