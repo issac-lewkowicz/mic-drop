@@ -27,11 +27,11 @@ function App() {
     }, [])
 
 
-    useEffect(() => {
-        fetch('http://localhost:6001/cart')
-            .then(res => res.json())
-            .then(setCartList)
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:6001/cart')
+    //         .then(res => res.json())
+    //         .then(setCartList)
+    // }, [])
 
     const onAddItem = (newGear) => {
 
@@ -39,9 +39,9 @@ function App() {
 
     }
 
-    const handleFilterBy = (category) => {
-        setFilterBy(category)
-    }
+    // const handleFilterBy = (category) => {
+    //     setFilterBy(category)
+    // }
 
     const handleSearch = (newSearch) => {
         setSearchTerm(newSearch)
@@ -107,18 +107,16 @@ function App() {
         <div className="App">
             <Banner className="App-header" />
             
-
-            
-
-
-            <HeroCarousel />
-
-
-            <Header searchTerm={searchTerm} onSearch={handleSearch} />
+            <Header 
+                searchTerm={searchTerm} 
+                onSearch={handleSearch} 
+                onAddItem={onAddItem} 
+            />
             <NavBar filterBy={filterBy} onChangeFilter={setFilterBy} />
-            <CardList itemList={displayedItemList} filteredItems={filteredItems} onAddToCart={onAddToCart} />
+            <HeroCarousel />
+            <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
             <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
-            <InsturmentForm onAddItem={onAddItem} />
+            
         </div>
     );
 }

@@ -6,7 +6,7 @@ function CardList({ itemList, onAddToCart }) {
 
     return (
         <div>
-            <ul>
+            <ul id='CardList__Main'>
                 {cards}
             </ul>
         </div>

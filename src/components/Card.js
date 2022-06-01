@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import {Card as ListItem, Button} from '@mui/material';
 
 function Card({ card, onChangeCart }) {
 
@@ -24,13 +25,17 @@ function Card({ card, onChangeCart }) {
     // then appear as remove from cart,  in the cart.
 
     return (
-        <li>
-            <h3>{name}</h3>
-            <img src={imageOne} alt='item' />
-            <p>${price}</p>
-            <p>{condtion}</p>
-            <button onClick={handleClickCart}>{inCart ? 'Remove from Cart' : 'Add to Cart'}</button>
+        
+        <li className='CardList__Container'>
+            <ListItem className='CardList__Card'>
+                <h3 id="CardList__Card__name">{name}</h3>
+                <img id="CardList__Card__img" src={imageOne} alt='item' />
+                <p id="CardList__Card__price">${price}</p>
+                <p id="CardList__Card__condition">{condtion}</p>
+                <Button onClick={handleClickCart}>{inCart ? 'Remove from Cart' : 'Add to Cart'}</Button>
+            </ListItem>
         </li>
+        
     )
 }
 

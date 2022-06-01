@@ -1,5 +1,9 @@
 import React, {useState} from 'react'
 
+import ReactDOM from 'react-dom';
+import Button from '@mui/material/Button';
+import { TextField, Select, InputLabel, MenuItem, Container, Backdrop } from '@mui/material';
+
 
 function APIForm({onAddItem}) {
 
@@ -46,36 +50,61 @@ function APIForm({onAddItem}) {
         setInputs(initObj)
     }    
 
+
+    const [open, setOpen] = useState(false)
+    const handleClose = () => {
+      setOpen(false);
+    };
+    const handleToggle = () => {
+      setOpen(!open);
+    };
+
+
+
+
     return(
 
-        <div>
-            <></>
+        <>
+
+        <Button onClick={handleToggle} id='iFormButton'>Sell Your Gear!</Button>
+        <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={open}
+            onClick={handleClose}
+        >
+
+
+        <Container id='insturmentForm__container'>
+            
             <form onSubmit={submitHandler} name='form-field' className='form-field'> 
-                <textarea required onChange={changeHandler} name='name' placeholder='Name' value={inputs.name} />
-                <textarea required onChange={changeHandler} name='brand' placeholder='Brand' value={inputs.brand} />
-                {/* <textarea required onChange={changeHandler} name='new' placeholder='New or Used?' value={inputs.new} /> */}
-                <select required onChange={changeHandler} name='condition' placeholder='Condition?' value={inputs.condition} >
-                    <option value='New'>New</option>
-                    <option value='Mint'>Used</option>
-                    <option value='Okay'>Okay</option>
-                    <option value='Used'>Used</option>
-                    <option value='Poor'>Poor</option>
-                </select>
-                <textarea required onChange={changeHandler} name='price' placeholder='price' value={inputs.price} />
-                <textarea required onChange={changeHandler} name='instruFam' placeholder='Type Of Insturment' value={inputs.instruFam} />
-                <select required onChange={changeHandler} name='rating' placeholder='Rating' value={inputs.rating} >
-                    <option value='1'>1</option>
-                    <option value='1'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
-                </select>
-                <textarea required onChange={changeHandler} name='imageOne' placeholder='Add An Image' value={inputs.imageOne} />
-                <textarea required onChange={changeHandler} name='imageTwo' placeholder='Add An Image' value={inputs.imageTwo} />
-                <textarea required onChange={changeHandler} name='imageThree' placeholder='Add An Image' value={inputs.imageThree} />  
-                <button type='submit' >The Hardest Button To Button </button>
+                <TextField required onChange={changeHandler} name='name' placeholder='Name' value={inputs.name} />
+                <TextField required onChange={changeHandler} name='brand' placeholder='Brand' value={inputs.brand} />
+              
+                <InputLabel id='conId'>Condition</InputLabel>
+                <Select labelId='conId' required onChange={changeHandler} name='condition' placeholder='Condition?' label='Condition' value={inputs.condition} >
+                    <MenuItem value='New'>New</MenuItem>
+                    <MenuItem value='Mint'>Mint</MenuItem>
+                    <MenuItem value='Okay'>Okay</MenuItem>
+                    <MenuItem value='Used'>Used</MenuItem>
+                    <MenuItem value='Poor'>Poor</MenuItem>
+                </Select>
+                <TextField required onChange={changeHandler} name='price' placeholder='price' value={inputs.price} />
+                <TextField required onChange={changeHandler} name='instruFam' placeholder='Type Of Insturment' value={inputs.instruFam} />
+                <Select required onChange={changeHandler} name='rating' placeholder='Rating' value={inputs.rating} >
+                    <MenuItem value='1'>1</MenuItem>
+                    <MenuItem value='1'>2</MenuItem>
+                    <MenuItem value='3'>3</MenuItem>
+                    <MenuItem value='4'>4</MenuItem>
+                    <MenuItem value='5'>5</MenuItem>
+                </Select>
+                <TextField required onChange={changeHandler} name='imageOne' placeholder='Add An Image' value={inputs.imageOne} />
+                <TextField required onChange={changeHandler} name='imageTwo' placeholder='Add An Image' value={inputs.imageTwo} />
+                <TextField required onChange={changeHandler} name='imageThree' placeholder='Add An Image' value={inputs.imageThree} />  
+                <Button varient='contained' type='submit' >The Hardest Button To Button </Button>
             </form>
-        </div>
+        </Container>
+        </Backdrop>
+        </>
 
     )
 
