@@ -5,7 +5,7 @@ import Header from "./Header";
 import NavBar from "./NavBar";
 import CardList from "./CardList";
 import HeroCarousel from "./Hero Section/HeroCarousel";
-import InsturmentForm from "./InsturmentForm";
+//import InsturmentForm from "./InsturmentForm";
 import Cart from "./Cart";
 import { Route, Switch } from "react-router-dom";
 
@@ -80,17 +80,17 @@ function App() {
         onAddItem={onAddItem}
       />
       <Switch>
+          
         <Route exact path="/">
           <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy} />
           <HeroCarousel />
+          <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
         </Route>
 
-        <Route path="/instruments/:id">
-          <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
+        <Route path="/instruments/cart">
           <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
         </Route>
 
-        <Route path="/instruments/:id/edit"></Route>
       </Switch>
     </div>
   );
