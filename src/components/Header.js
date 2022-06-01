@@ -1,5 +1,5 @@
 import React from 'react'
-import InsturmentForm from './InsturmentForm'
+import InstrumentForm from './InsturmentForm'
 
 function Header({ onSearch, searchTerm, onAddItem }) {
     //const handleNewItem = () => {}
