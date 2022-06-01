@@ -8,11 +8,7 @@ function Header({ onSearch, searchTerm }) {
     return (
         <div>
             <h2>Mic Drop</h2>
-         
-            <form>
-                <input type="text" value={searchTerm} onChange={e => onSearch(e.target.value)} />
-                
-            </form>
+            <input type="text" placeholder="Search..." value={searchTerm} onChange={e => onSearch(e.target.value)} />
             {/* <button onClick={handleNewItem} value="Sell your gear!" /> */}
         </div>
     )

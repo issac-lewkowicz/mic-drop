@@ -1,7 +1,8 @@
 import Card from './Card';
 
-function CardList({ itemList }) {
-    const cards = itemList.map((card) => <Card key={card.id} card={card} />)
+function CardList({ itemList, onAddToCart }) {
+
+    const cards = itemList.map((card) => <Card key={card.id} card={card} onChangeCart={onAddToCart}/>)
 
     return (
         <div>

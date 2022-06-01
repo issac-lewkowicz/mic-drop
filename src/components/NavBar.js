@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Navbar({filterBy, onChangeFilter}) {
+function NavBar({filterBy, onChangeFilter}) {
     function handleGuitars(e){
         onChangeFilter(e.target.value);
     }
@@ -14,4 +14,4 @@ function Navbar({filterBy, onChangeFilter}) {
   )
 }
 
-export default Navbar
+export default NavBar
