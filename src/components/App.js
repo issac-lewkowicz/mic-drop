@@ -7,6 +7,7 @@ import CardList from './CardList';
 import HeroCarousel from './Hero Section/HeroCarousel';
 import InsturmentForm from './InsturmentForm';
 import Cart from './Cart';
+import {Route, Switch} from "react-router-dom";
 
 function App() {
 
@@ -47,8 +48,7 @@ function App() {
         setSearchTerm(newSearch)
     }
     
-    const displayedItemList = itemList.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()))
-        .filter((item) => filterBy === "All" ? true : item.instruFam === filterBy)
+
 
     const onAddToCart = (id) => {
 
@@ -102,16 +102,32 @@ function App() {
             })
     }
 
+    const displayedItemList = itemList.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .filter((item) => filterBy === "All" ? true : item.instruFam === filterBy)
+
 
     return (
         <div className="App">
             <Banner className="App-header" />
-            <HeroCarousel />
-            <Header searchTerm={searchTerm} onSearch={handleSearch} />
-            <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy} />
-            <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
+            <Header searchTerm={searchTerm} onSearch={handleSearch} onAddItem={onAddItem}/>
+            <Switch>
+            <Route exact path="/">
+        
+                <HeroCarousel />
+                <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy} />
+             
+            </Route>
+
+            <Route path="/instruments/:id">
+            <CardList itemList={displayedItemList} onAddToCart={onAddToCart}  />
             <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
-            <InsturmentForm onAddItem={onAddItem} />
+            </Route>      
+
+            <Route path="/instruments/:id/edit">
+            
+            </Route>
+
+            </Switch>
         </div>
     );
 }

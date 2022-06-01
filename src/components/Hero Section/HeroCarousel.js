@@ -13,7 +13,7 @@ useEffect(()=> {
     .then(setHeroArr)
 },[])
 
-console.log(heroArr)
+//console.log(heroArr)
 
 const heroDisplayItems = heroArr.map(hero => {
 return <HeroItem key={hero.id} hero={hero} />
