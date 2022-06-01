@@ -10,15 +10,10 @@ import Cart from './Cart';
 
 function App() {
 
-    //All components are just for demo purposes
-    // Will be modified tommorrow
-    //db.json currently holding example data
-    //GET request, and card renderings are allready functional, will be modified
-
     const [itemList, setItemList] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
     const [filterBy, setFilterBy] = useState('All');
-    const [cartList, setCartList] = useState([]);
+
 
     useEffect(() => {
         fetch('http://localhost:6001/items')
@@ -27,31 +22,7 @@ function App() {
     }, [])
 
 
-    // useEffect(() => {
-    //     fetch('http://localhost:6001/cart')
-    //         .then(res => res.json())
-    //         .then(setCartList)
-    // }, [])
-
-    const onAddItem = (newGear) => {
-
-        setItemList([...itemList, newGear])
-
-    }
-
-    // const handleFilterBy = (category) => {
-    //     setFilterBy(category)
-    // }
-
-    const handleSearch = (newSearch) => {
-        setSearchTerm(newSearch)
-    }
-    
-    const displayedItemList = itemList.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()))
-        .filter((item) => filterBy === "All" ? true : item.instruFam === filterBy)
-
     const onAddToCart = (id) => {
-
         const patchConfig = {
             method: "PATCH",
             headers: {
@@ -60,26 +31,9 @@ function App() {
             },
             body: JSON.stringify({ inCart: true })
         };
-
         fetch(`http://localhost:6001/items/${id}`, patchConfig)
             .then(res => res.json())
-            .then((resItem) => {
-                const postConfig = {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify(resItem),
-                };
-
-                fetch('http://localhost:6001/cart', postConfig)
-                    .then(res => res.json())
-                    .then((responseItem) => {
-                        console.log(responseItem)
-                        setCartList([...cartList, responseItem])
-                    })
-            })
+            .then((resItem) => handleUpdateCart(resItem))
     }
 
     const onRemoveFromCart = (id) => {
@@ -91,17 +45,26 @@ function App() {
             },
             body: JSON.stringify({ inCart: false })
         };
-
         fetch(`http://localhost:6001/items/${id}`, patchConfig)
             .then(res => res.json())
-            .then((resItem) => {
-                fetch(`http://localhost:6001/cart/${resItem.id}`, {
-                    method: 'DELETE'
-                })
-                setCartList(cartList.filter(item => item.id !== resItem.id))
-            })
+            .then((resItem) => handleUpdateCart(resItem))
     }
 
+    function handleUpdateCart(newItem) {
+        const updatedItemList = itemList.map(item => item.id === newItem.id ? newItem : item);
+        setItemList(updatedItemList)
+    }
+
+    const onAddItem = (newGear) => setItemList([...itemList, newGear]);
+
+    const handleFilterBy = (category) => setFilterBy(category);
+
+    const handleSearch = (newSearch) => setSearchTerm(newSearch);
+
+    const displayedItemList = itemList.filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        .filter((item) => filterBy === "All" ? true : item.instruFam === filterBy);
+
+    const cartList = itemList.filter((item) => item.inCart);
 
     return (
         <div className="App">
@@ -112,7 +75,9 @@ function App() {
                 onSearch={handleSearch} 
                 onAddItem={onAddItem} 
             />
-            <NavBar filterBy={filterBy} onChangeFilter={setFilterBy} />
+            
+        
+            <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy} />
             <HeroCarousel />
             <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
             <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
