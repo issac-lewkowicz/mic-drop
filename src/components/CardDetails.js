@@ -30,6 +30,7 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
 
     return (
         <div>
+            {/* image bar + image display to be entered here. add state of selected image */}
             <div className="info">
                 <h3>{name}</h3>
                 <p>{'Brand: ' + brand}</p>
