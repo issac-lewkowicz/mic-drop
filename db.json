@@ -36,7 +36,7 @@
       "imageOne": "https://media.sweetwater.com/api/i/q-82__ha-369b7f8446c9a0a5__hmac-d05bf2f8d0c0155c020aaa5bfc3f253907d48cfa/images/items/750/DSVANCH-large.jpg",
       "imageTwo": "https://media.sweetwater.com/api/i/q-85__ha-346a16ff0c280ba0__hmac-a1d65c55c15f383e2e885d9f4a236f17e8c6db80/images/items/1800/DSVS00CWCH-xlarge.jpg",
       "imageThree": "https://media.sweetwater.com/api/i/q-85__ha-292098e4e3320d51__hmac-4cdf043c7a68ca8e078fef8bc7341ca772e8c6d8/images/items/1800/58KFVBLKVOG-xlarge.jpg",
-      "inCart": false,
+      "inCart": true,
       "id": 12
     },
     {

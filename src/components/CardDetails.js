@@ -22,13 +22,11 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
     const { name, brand, instruFam, rating, price, condition, imageOne, imageTwo, imageThree, inCart } = card;
 
     function handleClickCart() {
-       inCart ? onRemoveFromCart(card.id) : onAddToCart(card.id);
-       setCard({...card , inCart : !inCart})
+        inCart ? onRemoveFromCart(card.id) : onAddToCart(card.id);
+        setCard({ ...card, inCart: !inCart })
     }
-    
-    const removeCartButton = (inCart) ? <Button onClick={handleClickCart}>Remove from cart</Button> : null;
-    const addCartButton = (!inCart) ? <Button onClick={handleClickCart}>Add to cart</Button> : null;
-    const cartButton = (inCart) ? removeCartButton : addCartButton;
+
+    const cartButton = (inCart) ? <Button onClick={handleClickCart}>Remove from cart</Button> : <Button onClick={handleClickCart}>Add to cart</Button>;
 
     return (
         <div>
