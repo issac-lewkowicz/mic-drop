@@ -1,4 +1,4 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import {Card as ListItem, Button} from '@mui/material';
 
 
@@ -8,8 +8,8 @@ function Card({ card, onChangeCart, source }) {
 
     const handleClickCart = () => onChangeCart(card.id);
 
-    const removeCartButton = (inCart) ? <button onClick={handleClickCart}>Remove from cart</button> : null;
-    const addCartButton = (!inCart) ? <button onClick={handleClickCart}>Add to cart</button> : null;
+    const removeCartButton = (inCart) ? <Button onClick={handleClickCart}>Remove from cart</Button> : null;
+    const addCartButton = (!inCart) ? <Button onClick={handleClickCart}>Add to cart</Button> : null;
     const cartButton = (source === 'cart') ? removeCartButton : addCartButton;
 
     return (
@@ -20,7 +20,7 @@ function Card({ card, onChangeCart, source }) {
                 <img id="CardList__Card__img" src={imageOne} alt='item' />
                 <p id="CardList__Card__price">${price}</p>
                 <p id="CardList__Card__condition">{condtion}</p>
-                <Button onClick={handleClickCart}>{inCart ? 'Remove from Cart' : 'Add to Cart'}</Button>
+                {cartButton}
             </ListItem>
         </li>
         
