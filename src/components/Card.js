@@ -5,6 +5,8 @@ import Grid from "@mui/material/Grid";
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
+import { borderColor, maxWidth, minHeight } from "@mui/system";
+
 function Card({ card, onChangeCart, source, classes }) {
   const {
     name,
@@ -29,12 +31,12 @@ function Card({ card, onChangeCart, source, classes }) {
   const Img = styled('img')({
     margin: 'auto',
     display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
+    maxWidth: '100px'
+    
   });
   return (
-    <Grid item xs={2} sx={{border: '1px solid #2D2D2D', borderRadius: '2px'}} >
-        <Typography gutterBottom variant="subtitle1" component="div">{name}</Typography>
+    <Grid item minHeight='500px' borderColor={'black'} >
+        <Typography variant="subtitle1" component="div">{name}</Typography>
         <Link to={`/instruments/${card.id}`}>
           <Img src={imageOne} alt="item" />
         </Link>

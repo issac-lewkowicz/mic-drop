@@ -14,20 +14,25 @@ function NavBar({ onChangeFilter }) {
 
         container 
         spacing={8}
+        marginTop='1px'
         direction="row"
-        justifyContent="center"
-        alignItems="center"
+        // justifyContent="center"
+        // alignItems="center"
+        // sx={
+        //   {backgroundColor: '}
+        // }
+        
     
     
     >
-      <Grid item lg={3}>
-        <Button variant='contained' color='primary' value="Electric Guitar" onClick={handleClick}> Guitars</Button>
+      <Grid item xs={4}>
+        <Button variant='contained' color='secondary' value="Electric Guitar" onClick={handleClick}> Guitars</Button>
       </Grid>
-      <Grid item lg={3}>
-        <Button variant='contained' color='primary' value="Microphone" onClick={handleClick}> Microphones</Button>
+      <Grid item xs={4}>
+        <Button variant='contained' color='secondary' value="Microphone" onClick={handleClick}> Microphones</Button>
       </Grid>
-      <Grid item lg={3}>
-        <Button variant='contained' color='primary' value="Sound Card" onClick={handleClick}> Sound Cards</Button>
+      <Grid item xs={4}>
+        <Button variant='contained' color='secondary' value="Sound Card" onClick={handleClick}> Sound Cards</Button>
       </Grid>
     </Grid>
     </>
