@@ -12,10 +12,10 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
         fetch(`http://localhost:6001/items/${id}`)
             .then(res => res.json())
             .then(resCard => {
-                setCard(resCard)
-                setIsLoaded(true);
+                setCard(() => resCard)
+                setIsLoaded(() => true);
             })
-    }, [id]) //a fix is required. needs to rerender after cart button is clicked
+    }, [id])
 
     if (!isLoaded) return <h1>Loading...</h1>;
 
@@ -23,7 +23,9 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
 
     function handleClickCart() {
        inCart ? onRemoveFromCart(card.id) : onAddToCart(card.id);
+       setCard({...card , inCart : !inCart})
     }
+    
     const removeCartButton = (inCart) ? <Button onClick={handleClickCart}>Remove from cart</Button> : null;
     const addCartButton = (!inCart) ? <Button onClick={handleClickCart}>Add to cart</Button> : null;
     const cartButton = (inCart) ? removeCartButton : addCartButton;
