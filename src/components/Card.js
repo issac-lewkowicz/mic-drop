@@ -1,6 +1,6 @@
 //import { useState } from 'react';
 import {Card as ListItem, Button} from '@mui/material';
-
+import { Link } from "react-router-dom";
 
 function Card({ card, onChangeCart, source }) {
 
@@ -17,7 +17,7 @@ function Card({ card, onChangeCart, source }) {
         <li className='CardList__Container'>
             <ListItem className='CardList__Card'>
                 <h3 id="CardList__Card__name">{name}</h3>
-                <img id="CardList__Card__img" src={imageOne} alt='item' />
+                <Link to={`/instruments/${card.id}`}><img id="CardList__Card__img" src={imageOne} alt='item' /></Link>
                 <p id="CardList__Card__price">${price}</p>
                 <p id="CardList__Card__condition">{condtion}</p>
                 {cartButton}

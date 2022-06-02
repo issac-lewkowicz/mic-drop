@@ -8,6 +8,7 @@ import HeroCarousel from "./Hero Section/HeroCarousel";
 //import InsturmentForm from "./InsturmentForm";
 import Cart from "./Cart";
 import { Route, Switch } from "react-router-dom";
+import CardDetails from "./CardDetails";
 
 function App() {
   const [itemList, setItemList] = useState([]);
@@ -80,7 +81,7 @@ function App() {
         onAddItem={onAddItem}
       />
       <Switch>
-          
+
         <Route exact path="/">
           <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy} />
           <HeroCarousel />
@@ -89,6 +90,10 @@ function App() {
 
         <Route path="/instruments/cart">
           <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
+        </Route>
+
+        <Route path="/instruments/:id">
+            <CardDetails onAddToCart={onAddToCart} onRemoveFromCart={onRemoveFromCart}/>
         </Route>
 
       </Switch>
