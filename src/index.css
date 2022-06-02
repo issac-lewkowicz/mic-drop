@@ -21,25 +21,6 @@ code {
 
 }
 
-.CardList__Card{
-
-  background-color: aqua;
-  width:10vw;
-  height:10vw
-
-}
-
-.CardList__Container{
-
-    list-style: none;
-
-}
-
-.CardList__Main{
-
-  display: grid;
-
-}
 
 .Banner{
 
@@ -90,5 +71,36 @@ code {
 
 #iFormButton{
   padding-left: 50px;
+}
+
+.hero__title{
+
+  color:#C83131
+
+}
+
+.heroItem__body {
+
+  color: black;
+  word-wrap:break-word;
+  
+}
+
+.heroItem__image{
+
+  width:45vw;
+  border-radius: 8px;
+
+}
+
+.heroItem__paper{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filters{
+
+  margin: 50px;
+
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Card as ListItem } from '@mui/material'
+import { Paper, Button} from '@mui/material'
 
 
 function HeroItem({hero}){
@@ -7,19 +7,21 @@ function HeroItem({hero}){
 
 
 return( 
-    <ListItem
-    sx={{width: '90vw',
+    <Paper
+    
+    sx={{width: '100vw',
+        height: '30vh',
         backgroundColor: '#FBEBD8',
-        alignItems: 'center',
-        borderRadius: 12,
-        borderColor: "black",
-        margin: 3
+        alignItems: 'center'    
     }}
-    >
-            <h3 className='hero__title'>{hero.title}</h3>
-            <p className='heroItem__body'>{hero.body}</p>
+    >       <div className='heroItem_textContainer'>
+                <h3 className='hero__title'>{hero.title.toUpperCase()}</h3>
+                <p className='heroItem__body'>{hero.body}</p>
+            </div>
+
             <img className='heroItem__image' src={hero.image} alt='Sick Music Photos' />
-     </ListItem>
+   
+     </Paper>
 )
 
 }
