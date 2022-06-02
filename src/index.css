@@ -15,17 +15,7 @@ body {
     width: 20vw;
     height:40vh;
   }
-  .CardList__Card{
-    background-color: aqua;
-    width:10vw;
-    height:10vw
-  }
-  .CardList__Container{
-      list-style: none;
-  }
-  .CardList__Main{
-    display: grid;
-  }
+
   .Banner{
     background-color:#FBEBD8 ;
     margin-top: 0%;

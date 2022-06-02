@@ -10,6 +10,7 @@ import Cart from "./Cart";
 import { Route, Switch } from "react-router-dom";
 import CardDetails from "./CardDetails";
 
+
 function App() {
   const [itemList, setItemList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,6 +21,7 @@ function App() {
       .then((res) => res.json())
       .then(setItemList);
   }, []);
+
 
   const onAddToCart = (id) => {
     const patchConfig = {
@@ -89,7 +91,7 @@ function App() {
         </Route>
 
         <Route path="/instruments/cart">
-          <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
+          <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList}/>
         </Route>
 
         <Route path="/instruments/:id">
