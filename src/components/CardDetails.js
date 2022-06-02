@@ -15,7 +15,7 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
                 setCard(resCard)
                 setIsLoaded(true);
             })
-    })
+    }, [id]) //a fix is required. needs to rerender after cart button is clicked
 
     if (!isLoaded) return <h1>Loading...</h1>;
 
