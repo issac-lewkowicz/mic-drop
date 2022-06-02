@@ -81,7 +81,6 @@ function App() {
         onAddItem={onAddItem}
       />
       <Switch>
-
         <Route exact path="/">
           <NavBar filterBy={filterBy} onChangeFilter={handleFilterBy} />
           <HeroCarousel />
@@ -93,9 +92,11 @@ function App() {
         </Route>
 
         <Route path="/instruments/:id">
-            <CardDetails onAddToCart={onAddToCart} onRemoveFromCart={onRemoveFromCart}/>
+          <CardDetails
+            onAddToCart={onAddToCart}
+            onRemoveFromCart={onRemoveFromCart}
+          />
         </Route>
-
       </Switch>
     </div>
   );
