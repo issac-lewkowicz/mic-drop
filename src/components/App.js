@@ -9,6 +9,7 @@ import HeroCarousel from "./Hero Section/HeroCarousel";
 import Cart from "./Cart";
 import { Route, Switch } from "react-router-dom";
 import CardDetails from "./CardDetails";
+import Checkout from "./Checkout";
 
 function App() {
   const [itemList, setItemList] = useState([]);
@@ -72,6 +73,16 @@ function App() {
 
   const cartList = itemList.filter((item) => item.inCart);
 
+  const emptyCart = () => {
+    const newList = [];
+    for (let item of itemList) {
+      item.inCart = false;
+      onRemoveFromCart(item.id);
+      newList.push(item);
+    }
+    setItemList(newList);
+  }
+
   return (
     <div className="App">
       <Banner className="App-header" />
@@ -87,7 +98,7 @@ function App() {
           <CardList itemList={displayedItemList} onAddToCart={onAddToCart} />
         </Route>
 
-        <Route path="/instruments/cart">
+        <Route path="/cart">
           <Cart onRemoveFromCart={onRemoveFromCart} cartList={cartList} />
         </Route>
 
@@ -96,6 +107,9 @@ function App() {
             onAddToCart={onAddToCart}
             onRemoveFromCart={onRemoveFromCart}
           />
+        </Route>
+        <Route path="/checkout">
+          <Checkout cartList={cartList} emptyCart={emptyCart} />
         </Route>
       </Switch>
     </div>

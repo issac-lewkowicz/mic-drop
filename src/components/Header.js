@@ -1,7 +1,8 @@
 import React from 'react'
 import InsturmentForm from "./InsturmentForm";
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import { NavLink } from "react-router-dom";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function Header({ onSearch, searchTerm, onAddItem }) {
 
@@ -12,7 +13,7 @@ function Header({ onSearch, searchTerm, onAddItem }) {
             <input className='Header_Content' type="text" placeholder="Search..." value={searchTerm} onChange={e => onSearch(e.target.value)} />
 
             <InsturmentForm id='iForm' className='Header_Content' onAddItem={onAddItem} />
-            <NavLink to='/instruments/cart'>Go to Cart</NavLink>
+            <NavLink to='/cart'><IconButton size="large" aria-label="Add To Cart" color="primary"><ShoppingCartIcon/></IconButton></NavLink>
         </div>
     )
 }

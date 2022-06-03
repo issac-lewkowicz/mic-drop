@@ -8,6 +8,7 @@ function NavBar({ onChangeFilter}) {
 
   return (
     <div className='filters'>
+        <button value="All" onClick={handleClick}> All</button>
           <button value="Electric Guitar" onClick={handleClick}> Guitars</button>
           <button value="Microphone" onClick={handleClick}> Microphone</button>
           <button value="Sound Card" onClick={handleClick}> Sound Card</button>
