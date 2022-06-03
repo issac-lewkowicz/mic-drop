@@ -30,6 +30,7 @@
 
 .details__container {
   display: grid;
+  grid-template-columns: 30vw, 30vw, 40vw;
 }
 
 .details__container li {
@@ -40,6 +41,19 @@
 .details__container__navbar {
   display: flex;
   background-color: #fbebd8;
+  grid-column: 1;
+  justify-content: center;
+  
+}
+
+.details__container__image__display {
+    display: flex;
+grid-column: 2;
+
+}
+
+.info {
+    grid-column: 3;
 }
 
 .details__container__navbar__card img {

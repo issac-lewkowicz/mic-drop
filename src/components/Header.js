@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.css";
 import InsturmentForm from "./InsturmentForm";
 import TextField from "@mui/material/TextField";
 import { NavLink } from "react-router-dom";
@@ -9,7 +10,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 function Header({ onSearch, searchTerm, onAddItem }) {
   return (
     <div id="Header">
-      <NavLink exact to="/">
+      <NavLink exact to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>
         <h2 className="Header_Content" id="logo">
           Mic Drop
         </h2>

@@ -9,7 +9,7 @@ function CardList({ itemList, onAddToCart }) {
     <Grid
       container
       spacing={4}
-      alignItems="center"
+      alignItems="bottom"
       justifyContent="space-evenly"
       padding="30px"
     >

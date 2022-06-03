@@ -1,13 +1,15 @@
 import Button from "@mui/material/Button";
+import {Card as CardItem} from "@mui/material";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteIcon from "@mui/icons-material/Delete";
+import logo from './logo.svg';
 
 function Card({ card, onChangeCart, source }) {
-  const { name, price, condtion, imageOne, inCart } = card;
+  const { name, price, condtion, imageOne = logo, inCart } = card;
 
   const handleClickCart = () => onChangeCart(card.id);
 
@@ -38,6 +40,7 @@ function Card({ card, onChangeCart, source }) {
   });
   return (
     <Grid item minHeight="250px" borderColor={"black"}>
+        <CardItem >
       <Typography variant="subtitle1" component="div">
         {name}
       </Typography>
@@ -49,6 +52,7 @@ function Card({ card, onChangeCart, source }) {
       </p>
       <p id="CardList__Card__condition">{condtion}</p>
       {cartButton}
+      </CardItem>
     </Grid>
   );
 }

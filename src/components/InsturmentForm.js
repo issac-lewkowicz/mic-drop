@@ -146,21 +146,18 @@ function APIForm({ onAddItem }) {
               <MenuItem value="5">5</MenuItem>
             </Select>
             <TextField
-              required
               onChange={changeHandler}
               name="imageOne"
               placeholder="Add An Image"
               value={inputs.imageOne}
             />
             <TextField
-              required
               onChange={changeHandler}
               name="imageTwo"
               placeholder="Add An Image"
               value={inputs.imageTwo}
             />
             <TextField
-              required
               onChange={changeHandler}
               name="imageThree"
               placeholder="Add An Image"
