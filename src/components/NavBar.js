@@ -1,19 +1,42 @@
 import React from 'react'
+import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
 
-function NavBar({ onChangeFilter}) {
+function NavBar({ onChangeFilter }) {
 
-    function handleClick(e){
-        onChangeFilter(e.target.value);
-    }
+  function handleClick(e) {
+    onChangeFilter(e.target.value);
+  }
 
   return (
-    <div className='filters'>
-        <button value="All" onClick={handleClick}> All</button>
-          <button value="Electric Guitar" onClick={handleClick}> Guitars</button>
-          <button value="Microphone" onClick={handleClick}> Microphone</button>
-          <button value="Sound Card" onClick={handleClick}> Sound Card</button>
-         
-    </div>
+    
+      <Grid
+
+        container 
+        spacing={8}
+        marginTop='1px'
+        direction="row"
+        // justifyContent="center"
+        // alignItems="center"
+        // sx={
+        //   {backgroundColor: '}
+        // }
+        >
+    
+      <Grid item xs={3}>
+        <Button variant='contained' color='secondary' value="All" onClick={handleClick}>All</Button>
+      </Grid>
+    
+      <Grid item xs={3}>
+        <Button variant='contained' color='secondary' value="Electric Guitar" onClick={handleClick}> Guitars</Button>
+      </Grid>
+      <Grid item xs={3}>
+        <Button variant='contained' color='secondary' value="Microphone" onClick={handleClick}> Microphones</Button>
+      </Grid>
+      <Grid item xs={3}>
+        <Button variant='contained' color='secondary' value="Sound Card" onClick={handleClick}> Sound Cards</Button>
+      </Grid>
+    </Grid>
   )
 }
 

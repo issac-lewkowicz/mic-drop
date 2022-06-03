@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeroItem from "./HeroItem";
+import Carousel from 'react-material-ui-carousel'
 
-import Carousel from "nuka-carousel";
-import { Container } from "@mui/system";
 
 function HeroCarousel() {
   const [heroArr, setHeroArr] = useState([]);
@@ -17,7 +16,24 @@ function HeroCarousel() {
     return <HeroItem key={hero.id} hero={hero} />;
   });
 
-  return <div className="heroCarousel">{heroDisplayItems}</div>;
+  return <Carousel   
+            stopPLayOnHover={true}
+            animation="slide"
+            duration={500}
+            interval={6500}
+           >
+            
+              
+              {heroDisplayItems}
+              
+          </Carousel>;
+
+
+
+
+
+
+
 }
 
 export default HeroCarousel;

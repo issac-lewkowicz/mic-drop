@@ -1,21 +1,20 @@
-//import { useState } from 'react';
-import { Card as ListItem } from "@mui/material";
+import  Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import Grid from "@mui/material/Grid";
+import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
+import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
+import { borderColor, maxWidth, minHeight } from "@mui/system";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 function Card({ card, onChangeCart, source }) {
   const {
     name,
-    brand,
     price,
-    insturFam,
     condtion,
-    rating,
     imageOne,
-    imageTwo,
-    imageThree,
     inCart,
   } = card;
 
@@ -41,18 +40,22 @@ function Card({ card, onChangeCart, source }) {
   ) : null;
   const cartButton = source === "cart" ? removeCartButton : addCartButton;
 
+  const Img = styled('img')({
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100px'
+
+  });
   return (
-    <li className="CardList__Container">
-      <ListItem className="CardList__Card">
-        <h3 id="CardList__Card__name">{name}</h3>
-        <Link to={`/instruments/${card.id}`}>
-          <img id="CardList__Card__img" src={imageOne} alt="item" />
-        </Link>
-        <p id="CardList__Card__price">${price.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}</p>
-        <p id="CardList__Card__condition">{condtion}</p>
-        {cartButton}
-      </ListItem>
-    </li>
+    <Grid item minHeight='250px' borderColor={'black'} >
+      <Typography variant="subtitle1" component="div">{name}</Typography>
+      <Link to={`/instruments/${card.id}`}>
+        <Img src={imageOne} alt="item" />
+      </Link>
+      <p id="CardList__Card__price">{price.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}</p>
+      <p id="CardList__Card__condition">{condtion}</p>
+      {cartButton}
+    </Grid>
   );
 }
 
