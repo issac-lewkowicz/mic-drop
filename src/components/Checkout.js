@@ -20,24 +20,9 @@ function Checkout({ cartList, emptyCart }) {
 
   const total = (
     <div>
-      <p>
-        Sub total:{" "}
-        {sum.toLocaleString("en-US", { style: "currency", currency: "USD" })}
-      </p>
-      <p>
-        Tax (15%):{" "}
-        {(sum * 0.15).toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}
-      </p>
-      <h3>
-        Total:{" "}
-        {(sum + sum * 0.15).toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}
-      </h3>
+      <p>Sub total: {sum.toLocaleString("en-US", { style: "currency", currency: "USD" })}</p>
+      <p>Tax (15%): {(sum * 0.15).toLocaleString("en-US", {style: "currency", currency: "USD" })}</p>
+      <h3>Total: {(sum + sum * 0.15).toLocaleString("en-US", {style: "currency", currency: "USD" })}</h3>
     </div>
   );
 
