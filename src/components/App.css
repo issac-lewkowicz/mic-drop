@@ -28,6 +28,34 @@
   color: #61dafb;
 }
 
+.details__container {
+  display: grid;
+}
+
+.details__container li {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.details__container__navbar {
+  display: flex;
+  background-color: #fbebd8;
+}
+
+
+.details__container__navbar__card img {
+  max-width: 15vw;
+  max-height: 15vh;
+}
+
+#nav__img1 :hover{
+    size: 110%;
+}
+
+ul {
+  list-style-type: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

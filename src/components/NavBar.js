@@ -9,7 +9,7 @@ function NavBar({ onChangeFilter }) {
   }
 
   return (
-    <>
+    
       <Grid
 
         container 
@@ -21,21 +21,24 @@ function NavBar({ onChangeFilter }) {
         // sx={
         //   {backgroundColor: '}
         // }
-        
+        >
     
+      <Grid item xs={3}>
+        <Button variant='contained' color='secondary' value="All" onClick={handleClick}>All</Button>
+      </Grid>
     
-    >
-      <Grid item xs={4}>
+      <Grid item xs={3}>
         <Button variant='contained' color='secondary' value="Electric Guitar" onClick={handleClick}> Guitars</Button>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={3}>
         <Button variant='contained' color='secondary' value="Microphone" onClick={handleClick}> Microphones</Button>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={3}>
         <Button variant='contained' color='secondary' value="Sound Card" onClick={handleClick}> Sound Cards</Button>
       </Grid>
     </Grid>
-    </>
+    
+    
   )
 }
 
