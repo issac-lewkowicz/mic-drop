@@ -1,5 +1,5 @@
-//import { useState } from 'react';
-import { Card as ListItem, Button } from "@mui/material";
+import  Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Typography from '@mui/material/Typography';
@@ -9,23 +9,14 @@ import { borderColor, maxWidth, minHeight } from "@mui/system";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteIcon from '@mui/icons-material/Delete';
 
-
-
 function Card({ card, onChangeCart, source }) {
   const {
     name,
-
     price,
-
     condtion,
-
     imageOne,
-
     inCart,
   } = card;
-
-
-
 
   const handleClickCart = () => onChangeCart(card.id);
 
@@ -49,7 +40,6 @@ function Card({ card, onChangeCart, source }) {
   ) : null;
   const cartButton = source === "cart" ? removeCartButton : addCartButton;
 
-
   const Img = styled('img')({
     margin: 'auto',
     display: 'block',
@@ -68,6 +58,5 @@ function Card({ card, onChangeCart, source }) {
     </Grid>
   );
 }
-
 
 export default Card;
