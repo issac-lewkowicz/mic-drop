@@ -4,6 +4,8 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 //import Img from "@mui/material/Img";
 import { styled } from '@mui/material/styles';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function CardDetails({ onAddToCart, onRemoveFromCart }) {
@@ -18,7 +20,6 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
     maxWidth: '50vw',
     maxHeight: '50vh',
   });
-
 
   useEffect(() => {
     fetch(`http://localhost:6001/items/${id}`)
@@ -57,9 +58,10 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
   const handleHoveredCard = (image) => setDisplayedImage(image);
 
   const cartButton = inCart ? (
-    <Button onClick={handleClickCart}>Remove from cart</Button>
+    <Button onClick={handleClickCart} variant="outlined" startIcon={<DeleteIcon />}>Remove from cart</Button>
   ) : (
-    <Button onClick={handleClickCart}>Add to cart</Button>
+    <Button onClick={handleClickCart} variant="outlined"
+    startIcon={<AddShoppingCartIcon />}>Add to cart</Button>
   );
 
   return (
@@ -90,7 +92,7 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
         <p>{instruFam}</p>
         <p>{"Rating: " + rating}</p>
         <p>{"Condition: " + condition}</p>
-        <p>{"Price: " + price}</p>
+        <p>{"Price: $" + price.toLocaleString()}</p>
         {cartButton}
       </div>
     </div>

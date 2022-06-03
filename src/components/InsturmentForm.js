@@ -36,12 +36,19 @@ function APIForm({onAddItem}) {
 
     const submitHandler = (e) => {
         e.preventDefault()
+
+        const newObj = {
+            ...inputs,
+            price: parseFloat(inputs.price),
+            rating: parseFloat(inputs.rating)
+        }
+
         fetch('http://localhost:6001/items', {
             method: 'POST',
             headers: {
                 "Content-Type" : 'application/json'
             },
-            body: JSON.stringify(inputs)
+            body: JSON.stringify(newObj)
         })
         .then(r => r.json())
         .then(onAddItem)
@@ -74,7 +81,7 @@ function APIForm({onAddItem}) {
 
         <>
 
-        <Button onClick={handleOpen}>Sell Your Gear!</Button>
+        <Button onClick={handleOpen} variant="outlined">Sell Your Gear!</Button>
         <Modal
         open={open}
         onClose={handleClose}
