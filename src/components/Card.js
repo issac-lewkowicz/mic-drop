@@ -35,7 +35,7 @@ function Card({ card, onChangeCart, source, classes }) {
     
   });
   return (
-    <Grid item minHeight='500px' borderColor={'black'} >
+    <Grid item minHeight='250px' borderColor={'black'} >
         <Typography variant="subtitle1" component="div">{name}</Typography>
         <Link to={`/instruments/${card.id}`}>
           <Img src={imageOne} alt="item" />
