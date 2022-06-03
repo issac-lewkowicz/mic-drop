@@ -81,7 +81,7 @@ function App() {
       newList.push(item);
     }
     setItemList(newList);
-  }
+  };
 
   return (
     <div className="App">

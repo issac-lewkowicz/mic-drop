@@ -42,14 +42,13 @@
   background-color: #fbebd8;
 }
 
-
 .details__container__navbar__card img {
   max-width: 15vw;
   max-height: 15vh;
 }
 
-#nav__img1 :hover{
-    size: 110%;
+#nav__img1 :hover {
+  size: 110%;
 }
 
 ul {

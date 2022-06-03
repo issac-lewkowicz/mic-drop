@@ -3,22 +3,21 @@ import { useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 //import Img from "@mui/material/Img";
-import { styled } from '@mui/material/styles';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import DeleteIcon from '@mui/icons-material/Delete';
-
+import { styled } from "@mui/material/styles";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 function CardDetails({ onAddToCart, onRemoveFromCart }) {
   const [card, setCard] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [displayedImage, setDisplayedImage] = useState('')
+  const [displayedImage, setDisplayedImage] = useState("");
   let { id } = useParams();
 
-  const Img = styled('img')({
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '50vw',
-    maxHeight: '50vh',
+  const Img = styled("img")({
+    margin: "auto",
+    display: "block",
+    maxWidth: "50vw",
+    maxHeight: "50vh",
   });
 
   useEffect(() => {
@@ -30,8 +29,6 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
         setDisplayedImage(resCard.imageOne);
       });
   }, [id]);
-
-  
 
   if (!isLoaded) return <h1>Loading...</h1>;
 
@@ -48,8 +45,6 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
     inCart,
   } = card;
 
-  
-
   function handleClickCart() {
     inCart ? onRemoveFromCart(card.id) : onAddToCart(card.id);
     setCard({ ...card, inCart: !inCart });
@@ -58,10 +53,21 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
   const handleHoveredCard = (image) => setDisplayedImage(image);
 
   const cartButton = inCart ? (
-    <Button onClick={handleClickCart} variant="outlined" startIcon={<DeleteIcon />}>Remove from cart</Button>
+    <Button
+      onClick={handleClickCart}
+      variant="outlined"
+      startIcon={<DeleteIcon />}
+    >
+      Remove from cart
+    </Button>
   ) : (
-    <Button onClick={handleClickCart} variant="outlined"
-    startIcon={<AddShoppingCartIcon />}>Add to cart</Button>
+    <Button
+      onClick={handleClickCart}
+      variant="outlined"
+      startIcon={<AddShoppingCartIcon />}
+    >
+      Add to cart
+    </Button>
   );
 
   return (
@@ -85,7 +91,9 @@ function CardDetails({ onAddToCart, onRemoveFromCart }) {
           </li>
         </ul>
       </nav>
-      <div className="details__container__image__display"><Img src={displayedImage} alt='Displayed img'/></div>
+      <div className="details__container__image__display">
+        <Img src={displayedImage} alt="Displayed img" />
+      </div>
       <div className="info">
         <h3>{name}</h3>
         <p>{"Brand: " + brand}</p>
